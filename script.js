@@ -138,7 +138,7 @@ boxes.forEach((box) => {
 // Select button to reset all boxes
 const resetBox = document.getElementById("reset"); 
 
-resetBox.addEventListener("click", () => {
+/*resetBox.addEventListener("click", () => {
     // Loop through all boxes and reset their state
     boxes.forEach((box) => {
         const boxId = `box${box.dataset.id}`;
@@ -148,7 +148,7 @@ resetBox.addEventListener("click", () => {
         localStorage.removeItem('userSetting');
         location.reload(); 
     });
-});
+});*/
 
 function updateprogress(value){
     let progress = parseInt(localStorage.getItem("progresslocal")) || 0;
