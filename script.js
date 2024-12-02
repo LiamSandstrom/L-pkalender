@@ -83,9 +83,13 @@ progressbar.style.width = `${initialProgress}%`;
 const progresstext = document.getElementById("progresstext");
 progresstext.querySelector("p").textContent = progressvalue + " / "
 
-//
+//set progressbar on load
 setprogressbartext();
 updateprogress(0);
+
+//start timer for refresh on midnight
+refreshAtMidnight();
+
 if(!userSetting){}
 else
 {
@@ -169,3 +173,18 @@ function setprogressbartext(){
     progresstext.querySelector("p").textContent = `${progress} / ${distance} km`;
 }
 
+function refreshAtMidnight(){
+    const now = new Date();
+
+    const nextMidnight = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1,
+        0, 0, 0
+    );
+    const timeUntilMidnight = nextMidnight - now;
+
+    setTimeout(() => {
+        location.reload();
+    }, timeUntilMidnight);
+}
